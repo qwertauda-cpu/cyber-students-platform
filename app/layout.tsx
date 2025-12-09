@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Cairo } from 'next/font/google';
 import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
 import Navbar from '@/components/Navbar';
 
-const inter = Inter({ subsets: ['latin', 'latin-ext'] });
+const cairo = Cairo({ 
+  subsets: ['arabic', 'latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-cairo',
+});
 
 export const metadata: Metadata = {
   title: 'منصة مجتمع طلاب الأمن السيبراني',
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={inter.className}>
+      <body className={`${cairo.variable} font-sans antialiased`}>
         <ThemeToggle />
         <Navbar />
         {children}

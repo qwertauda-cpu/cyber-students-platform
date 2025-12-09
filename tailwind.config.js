@@ -8,15 +8,18 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-cairo)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: {
-          light: '#3b82f6',
-          dark: '#60a5fa',
+          light: '#4f46e5',
+          dark: '#6366f1',
         },
         cyber: {
-          dark: '#0a0e27',
-          darker: '#050714',
-          accent: '#00ff88',
+          dark: '#0f172a',
+          darker: '#020617',
+          accent: '#10b981',
         },
       },
     },

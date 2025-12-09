@@ -56,39 +56,39 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-cyber-darker transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
-        <div className="text-center mb-8 md:mb-16">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 px-2">
+        <div className="text-center mb-12 md:mb-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-50 mb-4 md:mb-6 leading-tight">
             منصة مجتمع طلاب الأمن السيبراني
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             منصة شاملة تجمع طلاب الأمن السيبراني للتعلم والتواصل والتعاون
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 md:mb-16">
           {sections.map((section) => {
             const Icon = section.icon;
             return (
               <Link
                 key={section.href}
                 href={section.href}
-                className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-cyber-accent"
+                className="group bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-200 dark:border-slate-700 hover:border-cyber-accent/50 hover:-translate-y-1"
               >
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${section.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon className="w-6 h-6 text-white" />
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${section.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-lg`}>
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-3 leading-tight">
                   {section.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-4">
                   {section.description}
                 </p>
-                <div className="mt-4 flex items-center text-cyber-accent group-hover:translate-x-[-4px] transition-transform">
-                  <span className="text-sm font-semibold">استكشف</span>
+                <div className="flex items-center text-cyber-accent group-hover:translate-x-[-4px] transition-transform font-medium">
+                  <span className="text-sm">استكشف</span>
                   <FiArrowLeft className="w-4 h-4 mr-2" />
                 </div>
               </Link>
@@ -97,20 +97,35 @@ export default function Home() {
         </div>
 
         {/* Info Section */}
-        <div className="bg-gradient-to-r from-cyber-accent/10 to-blue-500/10 rounded-xl p-4 sm:p-6 md:p-8 border border-cyber-accent/20">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
+        <div className="bg-gradient-to-br from-cyber-accent/5 to-blue-500/5 dark:from-cyber-accent/10 dark:to-blue-500/10 rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 dark:border-slate-700">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4 md:mb-6">
             مرحباً بك في المنصة
           </h2>
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3 md:mb-4">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6 md:mb-8">
             هذه المنصة مصممة خصيصاً لطلاب الأمن السيبراني لتوفير بيئة تعليمية وتفاعلية شاملة.
             يمكنك من خلالها:
           </p>
-          <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300">
-            <li>متابعة آخر الإعلانات والتحديثات من الإدارة</li>
-            <li>تحميل الملازم والمحاضرات والمواد التعليمية</li>
-            <li>التفاعل مع زملائك في المجتمع</li>
-            <li>عرض مشاريعك البرمجية والإطلاع على مشاريع الآخرين</li>
-            <li>التواصل المباشر مع زملائك عبر نظام الدردشة</li>
+          <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg text-slate-700 dark:text-slate-300">
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-accent mt-1">•</span>
+              <span>متابعة آخر الإعلانات والتحديثات من الإدارة</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-accent mt-1">•</span>
+              <span>تحميل الملازم والمحاضرات والمواد التعليمية</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-accent mt-1">•</span>
+              <span>التفاعل مع زملائك في المجتمع</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-accent mt-1">•</span>
+              <span>عرض مشاريعك البرمجية والإطلاع على مشاريع الآخرين</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-accent mt-1">•</span>
+              <span>التواصل المباشر مع زملائك عبر نظام الدردشة</span>
+            </li>
           </ul>
         </div>
       </div>
