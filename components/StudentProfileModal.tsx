@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { X } from 'react-icons/hi';
-import { MessageCircle, Mail, Calendar, User } from 'react-icons/fi';
+import { HiX } from 'react-icons/hi';
+import { FiMessageCircle, FiMail, FiCalendar, FiUser } from 'react-icons/fi';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -91,24 +91,24 @@ export default function StudentProfileModal({
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-cyber-darker rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800"
+              className="bg-white dark:bg-cyber-darker rounded-xl sm:rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800 mx-2 sm:mx-0"
             >
               {/* Header */}
-              <div className="sticky top-0 bg-white dark:bg-cyber-darker border-b border-gray-200 dark:border-gray-800 px-6 py-4 flex items-center justify-between z-10">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              <div className="sticky top-0 bg-white dark:bg-cyber-darker border-b border-gray-200 dark:border-gray-800 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10">
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
                   الملف الشخصي
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                  className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors touch-manipulation"
                   aria-label="إغلاق"
                 >
-                  <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  <HiX className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 </button>
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {loading ? (
                   <div className="flex items-center justify-center py-12">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyber-accent"></div>
@@ -120,56 +120,56 @@ export default function StudentProfileModal({
                 ) : userData ? (
                   <>
                     {/* Avatar & Name */}
-                    <div className="text-center mb-6">
+                    <div className="text-center mb-4 sm:mb-6">
                       <div className="inline-block relative">
                         {userData.avatar ? (
                           <img
                             src={userData.avatar}
                             alt={userData.full_name}
-                            className="w-24 h-24 rounded-full object-cover border-4 border-cyber-accent"
+                            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-3 sm:border-4 border-cyber-accent"
                           />
                         ) : (
-                          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyber-accent to-blue-500 flex items-center justify-center border-4 border-cyber-accent">
-                            <User className="w-12 h-12 text-white" />
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-cyber-accent to-blue-500 flex items-center justify-center border-3 sm:border-4 border-cyber-accent">
+                            <FiUser className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                           </div>
                         )}
                       </div>
-                      <h3 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                         {userData.full_name}
                       </h3>
-                      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 capitalize">
+                      <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 capitalize">
                         {userData.role === 'admin' ? 'مدير' : 'طالب'}
                       </p>
                     </div>
 
                     {/* Bio */}
                     {userData.bio && (
-                      <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+                        <p className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
                           {userData.bio}
                         </p>
                       </div>
                     )}
 
                     {/* Info Cards */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                        <Mail className="w-5 h-5 text-cyber-accent flex-shrink-0" />
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                      <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
+                        <FiMail className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 break-all">
                           {userData.email}
                         </span>
                       </div>
-                      <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                        <Calendar className="w-5 h-5 text-cyber-accent flex-shrink-0" />
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
+                        <FiCalendar className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                           انضم في:{' '}
                           {new Date(userData.created_at).toLocaleDateString('ar-SA')}
                         </span>
                       </div>
                       {userData.projects_count !== undefined && (
-                        <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
-                          <User className="w-5 h-5 text-cyber-accent flex-shrink-0" />
-                          <span className="text-sm text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
+                          <FiUser className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-accent flex-shrink-0" />
+                          <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                             المشاريع: {userData.projects_count} | المنشورات:{' '}
                             {userData.posts_count || 0}
                           </span>
@@ -180,9 +180,9 @@ export default function StudentProfileModal({
                     {/* Chat Button */}
                     <button
                       onClick={handleChatClick}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-cyber-accent to-blue-500 hover:from-cyber-accent/90 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                      className="w-full py-2.5 sm:py-3 px-4 bg-gradient-to-r from-cyber-accent to-blue-500 hover:from-cyber-accent/90 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-sm sm:text-base touch-manipulation"
                     >
-                      <MessageCircle className="w-5 h-5" />
+                      <FiMessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                       <span>بدء الدردشة</span>
                     </button>
                   </>

@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import ThemeToggle from '@/components/ThemeToggle';
+import Navbar from '@/components/Navbar';
 
-const inter = Inter({ subsets: ['latin', 'arabic'] });
+const inter = Inter({ subsets: ['latin', 'latin-ext'] });
 
 export const metadata: Metadata = {
   title: 'منصة مجتمع طلاب الأمن السيبراني',
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <body className={inter.className}>
         <ThemeToggle />
+        <Navbar />
         {children}
       </body>
     </html>
